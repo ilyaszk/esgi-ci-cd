@@ -8,5 +8,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - run: ls -l # Liste les fichier du répertoire courant
-      - run: apt-get update && apt-get install -y cowsay # Installe cowsay
+      - name: Install cowsay
+        run: sudo apt-get update && sudo apt-get install -y cowsay # Installe cowsay
       - run: cat README.md | cowsay # Affiche le contenu du fichier README.md avec cowsay
