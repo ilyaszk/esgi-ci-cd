@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - run: ls -l # Liste les fichier du répertoire courant
-      - run: cat README.md # Affiche le contenu du fichier `README.md` à la base du dépôt
+      - run: apt-get update && apt-get install -y cowsay # Installe cowsay
+      - run: cat README.md | cowsay # Affiche le contenu du fichier README.md avec cowsay
