@@ -13,5 +13,5 @@ jobs:
         with:
           dockerfile: Dockerfile
       - run: docker image build --tag="${IMAGE_NAME}" ./
-      - run : echo "gfdgfdgdf" > index.js
+ 
       - run: docker container run --volume="$(pwd)":/app "${IMAGE_NAME}" npm run lint
