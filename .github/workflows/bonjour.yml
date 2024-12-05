@@ -1,13 +1,13 @@
+# bonjour.yml
 name: Bonjour
 on:
-  push:
+  - push
 jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
+    env:
+      IMAGE_NAME: "mynode"
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - run: ls -l # Liste les fichier du répertoire courant
-      - name: Install cowsay
-        run: sudo apt-get update && sudo apt-get install -y cowsay # Installe cowsay
-      - run: cat README.md | cowsay # Affiche le contenu du fichier README.md avec cowsay
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - run: docker image build --tag="${IMAGE_NAME}" ./
+      - run: docker container run "${IMAGE_NAME}" npm run lint
