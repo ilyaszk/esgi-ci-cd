@@ -18,7 +18,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           username: "ilyaszk"
-          password: "${{ secrets.DOCKERHUB_TOKEN }}"
+          password: "${{ secrets.CI_CD_ESGI }}"
       - name: "Push if on `main`"
         uses: docker/build-push-action@v6
         if: startsWith(github.ref, 'refs/tags/')
