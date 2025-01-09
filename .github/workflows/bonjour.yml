@@ -1,9 +1,8 @@
 # bonjour.yml
 name: Bonjour
 on:
-  push:
-    tags:
-      - "*"
+  - push
+
 jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
